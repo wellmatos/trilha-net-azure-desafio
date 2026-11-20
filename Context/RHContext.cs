@@ -14,6 +14,15 @@ namespace TrilhaNetAzureDesafio.Context
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Funcionario>()
+                .Property(f => f.Salario)
+                .HasPrecision(18, 2);
+        }
+
         public DbSet<Funcionario> Funcionarios { get; set; }
     }
 }
